@@ -33,9 +33,9 @@ const post = async (req: NextApiRequest, res: NextApiResponse) => {
     const newUser = await prisma.fakeUser.create({
       data: {
         uuid: uuidv4(),
-        email: "n@gmail.com",
-        name: "n",
-        password: "n",
+        email: "a@gmail.com",
+        name: "a",
+        password: "a",
       },
     });
     console.log(newUser);
