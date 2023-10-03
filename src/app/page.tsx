@@ -2,7 +2,7 @@
 
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useEffect } from "react";
-import UserCard from "../../components/user/userCard";
+import { HandleUserCard } from "../../components/user/userCard";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -12,19 +12,20 @@ export default function Home() {
   }, [session]);
 
   return (
-    <div>
-      {session && session.user ? (
-        <UserCard user={session.user} />
-      ) : (
-        <div>signed out</div>
-      )}
-      <div>home page</div>
-      <div className="cursor-pointer" onClick={() => signOut()}>
+    <div className="flex flex-col gap-2">
+      {session && session.user ? <HandleUserCard /> : <div>signed out</div>}
+      <button
+        className="cursor-pointer border-solid border-2 border-gray-500 text-center hover:opacity-75"
+        onClick={() => signOut()}
+      >
         sign out
-      </div>
-      <div className="cursor-pointer" onClick={() => signIn()}>
+      </button>
+      <button
+        className="cursor-pointer border-solid border-2 border-gray-500 text-center hover:opacity-75"
+        onClick={() => signIn()}
+      >
         sign in
-      </div>
+      </button>
     </div>
   );
 }

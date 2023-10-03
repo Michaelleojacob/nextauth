@@ -1,19 +1,30 @@
 import Image from "next/image";
+import { useSession } from "next-auth/react";
+import { useEffect } from "react";
 
-interface UserData {
-  name?: string | null | undefined;
-  email?: string | null | undefined;
-  image?: string | null | undefined;
-}
-
-export default function UserCard({ user }: { user: UserData }) {
+export function HandleUserCard() {
+  const { data: session } = useSession();
   return (
     <div>
-      {user.name ? <div>{user.name}</div> : null}
-      {user.email ? <div>{user.email}</div> : null}
-      {user.image ? (
+      {session && session.user ? <UserCard /> : <div>not logged in</div>}
+    </div>
+  );
+}
+
+export function UserCard() {
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (!session?.user) return;
+  }, [session]);
+
+  return (
+    <div>
+      {session?.user?.name ? <div>{session.user.name}</div> : null}
+      {session?.user?.email ? <div>{session.user.email}</div> : null}
+      {session?.user?.image ? (
         <Image
-          src={user.image}
+          src={session?.user?.image}
           alt="user-image"
           width={50}
           height={50}
