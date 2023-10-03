@@ -6,8 +6,8 @@ import AuthEntryPointLayout from "./authEntryPoint/layout";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "nextauth practice",
-  description: "nextauth practice - michael jacob",
+  title: "lol",
+  description: "lol",
 };
 
 export default function RootLayout({
@@ -18,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AuthEntryPointLayout>{children}</AuthEntryPointLayout>
+        <div className="flex flex-col items-start gap-2">
+          <AuthEntryPointLayout>{children}</AuthEntryPointLayout>
+        </div>
       </body>
     </html>
   );

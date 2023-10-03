@@ -7,5 +7,10 @@ export default function AuthEntryPointLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <SessionProvider>{children}</SessionProvider>;
+  return (
+    <SessionProvider>
+      {children}
+      <div>auth entry point layout</div>
+    </SessionProvider>
+  );
 }
