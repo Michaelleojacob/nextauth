@@ -43,3 +43,7 @@ EMAIL_FROM=NextAuth <noreply@example.com>
 
 DATABASE_URL=sqlite://localhost/:memory:?synchronize=true
 ```
+
+`npx prisma init` - creates a .env file. Nextjs uses .env.local
+To allow prisma to use .env.local install https://www.npmjs.com/package/dotenv-cli
+`npm i dotenv-cli`
