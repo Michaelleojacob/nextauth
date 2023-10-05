@@ -3,7 +3,6 @@
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 import { UserCard } from "./components/user/userCard";
-import { SigninSignoutButtons } from "./components/user/signinSignoutButtons/buttons";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -13,14 +12,13 @@ export default function Home() {
   }, [session]);
 
   return (
-    <div className="flex flex-col gap-2 items-start">
-      {session && session.user ? <UserCard /> : <div>signed out</div>}
-      <SigninSignoutButtons />
-      {session ? null : (
-        <button className="cursor-pointer border-solid border-2 border-gray-500 text-center hover:opacity-75">
-          create user
-        </button>
-      )}
+    <div>
+      <div>this is the home page</div>
+      <div>
+        it is a client component to make use of useEffect as to log the current
+        session
+      </div>
+      <UserCard />
     </div>
   );
 }
