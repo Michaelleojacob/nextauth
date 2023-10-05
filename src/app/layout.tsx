@@ -1,13 +1,13 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import AuthEntryPointLayout from "./authEntryPoint/layout";
+import { AuthProvider } from "./context/authprovider/authprovider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "lol",
-  description: "lol",
+  title: "nextauth practice",
+  description: "nextauth practice - michael jacob",
 };
 
 export default function RootLayout({
@@ -18,9 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex flex-col items-start gap-2">
-          <AuthEntryPointLayout>{children}</AuthEntryPointLayout>
-        </div>
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
