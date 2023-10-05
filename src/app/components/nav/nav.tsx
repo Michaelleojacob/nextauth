@@ -27,6 +27,9 @@ export function Nav() {
       <Link href="/extra" className="cursor-pointer hover:opacity-75">
         extra
       </Link>
+      <Link href="/protected" className="cursor-pointer hover:opacity-75">
+        protected
+      </Link>
     </div>
   );
 }
