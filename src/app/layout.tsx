@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description: "nextauth practice - michael jacob",
 };
 
+
 export default function RootLayout({
   children,
 }: {
