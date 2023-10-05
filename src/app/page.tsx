@@ -13,7 +13,7 @@ export default function Home() {
   }, [session]);
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 items-start">
       {session && session.user ? <UserCard /> : <div>signed out</div>}
       <SigninSignoutButtons />
       {session ? null : (
