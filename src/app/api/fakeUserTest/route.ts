@@ -41,28 +41,33 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
   }
 }
 
-// update user
-export async function UPDATE(req: NextApiRequest, res: NextApiResponse) {
-  try {
-    const updateUser = await prisma.fakeUser.update({
-      where: {
-        email: "n@gmail.com",
-      },
-      data: {
-        name: "migs",
-        password: "m",
-      },
-    });
-    return NextResponse.json({
-      succ: true,
-      msg: `user ${updateUser.email} updated`,
-      updateUser,
-    });
-  } catch (e) {
-    console.log(e);
-    return NextResponse.json({ succ: false, msg: "error updating a user" });
-  }
-}
+//update user
+/**
+ * update is not a supported http method in nextjs
+ * only:
+ * GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS
+ */
+// export async function UPDATE(req: NextApiRequest, res: NextApiResponse) {
+//   try {
+//     const updateUser = await prisma.fakeUser.update({
+//       where: {
+//         email: "n@gmail.com",
+//       },
+//       data: {
+//         name: "migs",
+//         password: "m",
+//       },
+//     });
+//     return NextResponse.json({
+//       succ: true,
+//       msg: `user ${updateUser.email} updated`,
+//       updateUser,
+//     });
+//   } catch (e) {
+//     console.log(e);
+//     return NextResponse.json({ succ: false, msg: "error updating a user" });
+//   }
+// }
 
 // delete user
 export async function DELETE(req: NextApiRequest, res: NextApiResponse) {
