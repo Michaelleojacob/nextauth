@@ -1,10 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
 import prisma from "../../../../prisma/prisma";
-import { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 // get all users
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: NextRequest, res: NextResponse) {
   try {
     const users = await prisma.fakeUser.findMany({});
     return NextResponse.json({ succ: true, msg: "got all users", users });
@@ -19,7 +18,7 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
 }
 
 // create single user (manual entry)
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: NextRequest, res: NextResponse) {
   try {
     const newUser = await prisma.fakeUser.create({
       data: {
@@ -42,7 +41,7 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
 }
 
 // delete user
-export async function DELETE(req: NextApiRequest, res: NextApiResponse) {
+export async function DELETE(req: NextRequest, res: NextResponse) {
   try {
     const delUser = await prisma.fakeUser.delete({
       where: {
@@ -63,7 +62,7 @@ export async function DELETE(req: NextApiRequest, res: NextApiResponse) {
 }
 
 // delete all users;
-export async function PATCH(req: NextApiRequest, res: NextApiResponse) {
+export async function PATCH(req: NextRequest, res: NextResponse) {
   try {
     const deleteAll = await prisma.fakeUser.deleteMany({});
     return NextResponse.json({
