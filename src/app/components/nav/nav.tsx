@@ -1,7 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import { signIn, signOut } from "next-auth/react";
+import SigninButton from "./signinButton";
+import SignOutButton from "./signinoutButton";
 
 export function Nav() {
   return (
@@ -9,15 +8,8 @@ export function Nav() {
       <Link href="/" className="cursor-pointer hover:opacity-75">
         home
       </Link>
-      <div className="cursor-pointer hover:opacity-75" onClick={() => signIn()}>
-        sign in
-      </div>
-      <div
-        className="cursor-pointer hover:opacity-75"
-        onClick={() => signOut()}
-      >
-        sign out
-      </div>
+      <SigninButton />
+      <SignOutButton />
       <Link href="/server" className="cursor-pointer hover:opacity-75">
         server
       </Link>
