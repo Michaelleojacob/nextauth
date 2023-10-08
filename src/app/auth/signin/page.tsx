@@ -8,7 +8,13 @@ export default async function Signin() {
   return (
     <>
       {Object.values(providers).map((provider) => (
-        <ProviderButtons provider={provider} key={provider.name} />
+        <div key={provider.id}>
+          {provider.id === "credentials" ? (
+            "thing"
+          ) : (
+            <ProviderButtons provider={provider} key={provider.name} />
+          )}
+        </div>
       ))}
     </>
   );
