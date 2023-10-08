@@ -11,7 +11,7 @@ export default async function Nav() {
       <Link href="/" className="cursor-pointer hover:opacity-75">
         home
       </Link>
-      {session ? "account" : <SigninButton />}
+      {session ? <Link href="/account">account</Link> : <SigninButton />}
       {session ? <SignOutButton /> : <p className="opacity-25">sign out</p>}
       <Link href="/server" className="cursor-pointer hover:opacity-75">
         server
