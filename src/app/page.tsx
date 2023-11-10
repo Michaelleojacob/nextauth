@@ -15,12 +15,6 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-2">
       {session && session.user ? <UserCard /> : <div>signed out</div>}
-      <SigninSignoutButtons />
-      {session ? null : (
-        <button className="cursor-pointer border-solid border-2 border-gray-500 text-center hover:opacity-75">
-          create user
-        </button>
-      )}
     </div>
   );
 }
