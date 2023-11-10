@@ -10,7 +10,8 @@
     "migrate": "dotenv -e .env.local -- npx prisma migrate deploy",
     "pull": "dotenv -e .env.local -- npx prisma db pull",
     "push": "dotenv -e .env.local -- npx prisma db push",
-    "generate": "dotenv -e .env.local -- npx prisma generate"
+    "generate": "dotenv -e .env.local -- npx prisma generate",
+    "update_branch": "git branch --set-upstream-to=v0.1.4_post_break"
   },
   "dependencies": {
     "@prisma/client": "^5.3.1",

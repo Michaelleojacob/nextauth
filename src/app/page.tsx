@@ -2,8 +2,8 @@
 
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
-import { UserCard } from "../../components/user/userCard";
-import { SigninSignoutButtons } from "../../components/user/signinSignoutButtons/buttons";
+import { UserCard } from "./components/user/userCard";
+import { SigninSignoutButtons } from "./components/user/signinSignoutButtons/buttons";
 
 export default function Home() {
   const { data: session } = useSession();
