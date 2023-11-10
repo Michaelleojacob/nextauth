@@ -11,10 +11,6 @@ export const options: NextAuthOptions = {
     // newUser: "/auth/new-user", // New users will be directed here on first sign in (leave the property out if not of interest)
   },
   providers: [
-    GitHubProvider({
-      clientId: process.env.GITHUB_ID as string,
-      clientSecret: process.env.GITHUB_SECRET as string,
-    }),
     CredentialsProvider({
       name: "Credentials",
       credentials: {
@@ -30,6 +26,8 @@ export const options: NextAuthOptions = {
         },
       },
       async authorize(credentials) {
+        console.log("hi");
+        console.log(credentials);
         // This is where you need to retrieve user data
         // to verify with credentials
         // Docs: https://next-auth.js.org/configuration/providers/credentials
@@ -44,6 +42,10 @@ export const options: NextAuthOptions = {
           return null;
         }
       },
+    }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID as string,
+      clientSecret: process.env.GITHUB_SECRET as string,
     }),
   ],
 };
