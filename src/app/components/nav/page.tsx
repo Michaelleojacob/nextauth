@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { getSession } from "next-auth/react";
-import SignoutButton from "../signoutButton/page";
+import UserInfo from "./userInfo";
+import Signout from "./signout";
 
-export default async function Nav() {
-  const session = await getSession();
+export default function Nav() {
   return (
     <div className="flex flex-row bg-blue-950 content-between justify-between">
       <div className="flex flex-row gap-3">
@@ -12,13 +11,9 @@ export default async function Nav() {
         <Link href="/client">client</Link>
         <Link href="/create">create</Link>
         <Link href="/signin">signin</Link>
-        {session ? (
-          <SignoutButton disabled={false} />
-        ) : (
-          <SignoutButton disabled={true} />
-        )}
+        <Signout />
       </div>
-      {session ? <div>{session.user?.name}</div> : <div>no user</div>}
+      <UserInfo />
     </div>
   );
 }
