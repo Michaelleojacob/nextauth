@@ -9,8 +9,9 @@ export default function Nav() {
         <Link href="/">home</Link>
         <Link href="/server">server</Link>
         <Link href="/client">client</Link>
-        <Link href="/create">create</Link>
+        <Link href="serverCanAccessSession">smartServer</Link>
         <Link href="/signin">signin</Link>
+        <Link href="/create">create</Link>
         <Signout />
       </div>
       <UserInfo />
