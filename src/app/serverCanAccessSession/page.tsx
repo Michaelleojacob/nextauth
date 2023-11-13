@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import authOptions from "../api/auth/[...nextauth]/authOptions";
+import { options } from "../api/auth/[...nextauth]/options";
 
 interface User {
   user: {
@@ -10,7 +10,8 @@ interface User {
 }
 
 export default async function SmartServer() {
-  const session: User | null = await getServerSession(authOptions);
+  const session: User | null = await getServerSession(options);
+  console.log(session);
   return (
     <pre>
       <div>this server-side component should be able to get the session</div>
