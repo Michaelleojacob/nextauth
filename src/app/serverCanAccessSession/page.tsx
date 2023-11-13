@@ -10,12 +10,12 @@ interface User {
 }
 
 export default async function SmartServer() {
-  const session: User | null = await getServerSession(options);
-  console.log(session);
+  // const session: User | null = await getServerSession(options);
+  // const session2 = await getSession();
   return (
     <pre>
       <div>this server-side component should be able to get the session</div>
-      <div>{session ? session.user.name : null}</div>
+      {/* <div>{session ? session.user.name : null}</div> */}
     </pre>
   );
 }
