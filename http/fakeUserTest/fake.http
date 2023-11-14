@@ -1,9 +1,0 @@
-GET http://localhost:3000/api/fakeUserTest/fakePrismaUser
-###
-POST http://localhost:3000/api/fakeUserTest/fakePrismaUser
-###
-PUT http://localhost:3000/api/fakeUserTest/fakePrismaUser
-###
-DELETE http://localhost:3000/api/fakeUserTest/fakePrismaUser
-###
-PATCH http://localhost:3000/api/fakeUserTest/fakePrismaUser
