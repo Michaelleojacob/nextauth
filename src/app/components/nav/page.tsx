@@ -12,7 +12,6 @@ export default function Nav() {
           <SignInButton />
           <SignOutButton />
           <Link href="protected">protected</Link>
-          <Link href="serverInfo">userInfo</Link>
         </div>
         <NavUserStatus />
       </div>
