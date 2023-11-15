@@ -2,6 +2,7 @@
 
 import { SessionProvider } from "next-auth/react";
 import { ReactNode } from "react";
+import Nav from "./components/nav/page";
 
 const Provider = ({
   children,
@@ -10,7 +11,12 @@ const Provider = ({
   children: ReactNode;
   session: any;
 }) => {
-  return <SessionProvider session={session}>{children}</SessionProvider>;
+  return (
+    <SessionProvider session={session}>
+      <Nav />
+      {children}
+    </SessionProvider>
+  );
 };
 
 export default Provider;
