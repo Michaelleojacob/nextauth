@@ -53,7 +53,24 @@ export const authOptions = {
         }
       },
     }),
-  ], // rest of your config
+  ],
+  pages: {
+    signIn: "/signin",
+  },
+  callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      console.log(user, account, profile, email, credentials);
+      const isAllowedToSignIn = true;
+      if (isAllowedToSignIn) {
+        return true;
+      } else {
+        // Return false to display a default error message
+        return false;
+        // Or you can return a URL to redirect to:
+        // return '/unauthorized'
+      }
+    },
+  },
 } satisfies NextAuthOptions;
 
 // Use it in server contexts
