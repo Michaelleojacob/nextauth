@@ -1,6 +1,5 @@
 "use client";
 import { signIn } from "next-auth/react";
-import ServerSignin from "@/app/serverSignin/page";
 
 export default function HardCodedSignin() {
   const handleClick = () =>
@@ -14,7 +13,6 @@ export default function HardCodedSignin() {
   return (
     <div>
       <button onClick={handleClick}>hardcoded</button>
-      <ServerSignin />
     </div>
   );
 }
