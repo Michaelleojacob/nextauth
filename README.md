@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## nexauth v0.5
 
-## Getting Started
+## branches and versions:
 
-First, run the development server:
+### main
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+removed
+
+### v0.4
+
+practice - first attempt after a small break
+
+### v0.5
+
+scrapped everything, started from a blank slate. Minimal version, no prisma. consists of only nextjs v14 and nextauth. This version is meant to be a solid jumping off point into more advanced features.
+
+### v0.6
+
+coming soon.
+
+## v0.5 features
+
+- protected route
+- nextauth middleware
+- nextjs middleware commented out, basic example.
+- server side session and session info (see /protected)
+- successful signin redirects to protected,
+- unsuccessful signin redirects to a signin page.
+
+## v0.5 feature details
+
+- only features basic credentials sign in, using a hard coded user, no form or user input.
+- no OAUTH options.
+- no db.
+- no creating users in the db.
+
+## v0.6 future updates:
+
+- connnect prisma and v0.5 to create a user database.
+- connect at least one OAuth.
+
+---
+
+## Supported HTTP methods
+
+The following HTTP methods are supported: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`, `HEAD`, and `OPTIONS`.
+source : *https://nextjs.org/docs/app/building-your-application/routing/route-handlers*
+
+---
+
+## Prisma reminders for myself
+
+check that `.gitignore` includes `.env`
+
+.env includes: `DATABASE_URL=` is the long db string  
+and that prisma/schema.prisma only ever includes:
+
+```js
+//prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+if this ever changes, please DO NOT COMMIT.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+prisma start up:
 
-## Learn More
+add db connection string to `.env`  
+use command `npx prisma init` in the terminal - may fail since `/prisma` already exists  
+`npx prisma db pull`;
+`npx prisma generate`;
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+to make changes to the prisma db: use `npx prisma db push`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If we need to change the schema it might be best to start a new db instance, or wipe the previous one clean.
