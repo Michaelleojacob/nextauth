@@ -1,7 +1,8 @@
 "use client";
 import { signIn } from "next-auth/react";
+import ServerSignin from "@/app/serverSignin/page";
 
-export default function SignInButton() {
+export default function HardCodedSignin() {
   const handleClick = () =>
     signIn("credentials", {
       redirect: true,
@@ -10,5 +11,10 @@ export default function SignInButton() {
       pass: "mig",
     });
 
-  return <button onClick={handleClick}>signin</button>;
+  return (
+    <div>
+      <button onClick={handleClick}>hardcoded</button>
+      <ServerSignin />
+    </div>
+  );
 }
