@@ -5,7 +5,7 @@ export default async function Home() {
   console.log(session);
   return (
     <div>
-      <div>hi</div>
+      <div>home</div>
     </div>
   );
 }
