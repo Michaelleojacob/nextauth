@@ -1,10 +1,6 @@
-## nexauth v0.6
+## nexauth v0.7
 
 ## branches and versions:
-
-### main
-
-removed
 
 ### v0.4
 
@@ -17,6 +13,10 @@ scrapped everything, started from a blank slate. Minimal version, no prisma. con
 ### v0.6
 
 version 6 or v0.6.0 is v0.5 but with a sign in form. v0.5 only had a hardcoded sign in
+
+## v0.7
+
+going to add prisma, and a create user page.
 
 ## v0.5 features
 
