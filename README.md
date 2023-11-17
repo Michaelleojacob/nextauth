@@ -1,4 +1,4 @@
-## nexauth v0.5
+## nexauth v0.6
 
 ## branches and versions:
 
