@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 
 export default function SigninForm() {
   const [user, setUser] = useState({ name: "", pass: "" });
-  const reset = () => setUser({ name: "", pass: "" });
   const router = useRouter();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,28 +20,26 @@ export default function SigninForm() {
     setUser({ ...user, [name]: value });
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          name
-          <input
-            type="text"
-            name="name"
-            onChange={handleChange}
-            className="text-black"
-          />
-        </label>
-        <label>
-          password
-          <input
-            type="password"
-            name="pass"
-            onChange={handleChange}
-            className="text-black"
-          />
-        </label>
-        <button type="submit">submit</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className="flex flex-col items-start">
+      <label>
+        name
+        <input
+          type="text"
+          name="name"
+          onChange={handleChange}
+          className="text-black"
+        />
+      </label>
+      <label>
+        password
+        <input
+          type="password"
+          name="pass"
+          onChange={handleChange}
+          className="text-black"
+        />
+      </label>
+      <button type="submit">submit</button>
+    </form>
   );
 }

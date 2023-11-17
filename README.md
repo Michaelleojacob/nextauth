@@ -16,7 +16,7 @@ scrapped everything, started from a blank slate. Minimal version, no prisma. con
 
 ### v0.6
 
-coming soon.
+version 6 or v0.6.0 is v0.5 but with a sign in form. v0.5 only had a hardcoded sign in
 
 ## v0.5 features
 
