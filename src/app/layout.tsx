@@ -7,7 +7,7 @@ import { getServerSession } from "next-auth";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "nextauth v0.5.0",
+  title: "nextauth v0.6.0",
   description: "test env to isolate problems with a minimal setup",
 };
 
