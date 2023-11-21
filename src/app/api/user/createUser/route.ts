@@ -8,7 +8,6 @@ export async function GET(req: Request, res: Response) {
 export async function POST(req: Request, res: Response) {
   const body = await req.json();
   const { user } = body;
-  const thing = await handleCreateUser({ user });
-  console.log(thing);
-  return Response.json({ msg: "create user route.ts POST" });
+  const newUserData = await handleCreateUser({ user });
+  return Response.json({ newUserData });
 }
