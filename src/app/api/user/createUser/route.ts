@@ -1,4 +1,4 @@
-import prisma from "../../../../../prisma/db";
+import handleCreateUser from "./handleCreateUser";
 
 export async function GET(req: Request, res: Response) {
   console.log(req);
@@ -7,13 +7,8 @@ export async function GET(req: Request, res: Response) {
 
 export async function POST(req: Request, res: Response) {
   const body = await req.json();
-  console.log(body);
   const { user } = body;
-  if (user.password === user.confirmpassword) {
-    const test = await prisma.user.create({
-      data: { name: user.username, password: user.password },
-    });
-    console.log(test);
-  }
+  const thing = await handleCreateUser({ user });
+  console.log(thing);
   return Response.json({ msg: "create user route.ts POST" });
 }

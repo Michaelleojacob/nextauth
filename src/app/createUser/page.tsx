@@ -15,6 +15,8 @@ export default function CreateUserForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (user.password !== user.confirmpassword)
+      return console.log("password and confirm password does not match");
     const raw = await fetch("/api/user/createUser", {
       method: "POST",
       mode: "same-origin",
@@ -37,6 +39,7 @@ export default function CreateUserForm() {
           value={user.username}
           className="text-black"
           onChange={handleChange}
+          required
         />
       </label>
       <label>
@@ -47,6 +50,7 @@ export default function CreateUserForm() {
           value={user.password}
           className="text-black"
           onChange={handleChange}
+          required
         />
       </label>
       <label className="block">
@@ -57,6 +61,7 @@ export default function CreateUserForm() {
           value={user.confirmpassword}
           className="text-black"
           onChange={handleChange}
+          required
         />
       </label>
       <button type="submit">submit</button>
