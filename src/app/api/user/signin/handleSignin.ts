@@ -7,10 +7,10 @@ interface User {
 }
 
 export default async function handleSignin({ user }: { user: User }) {
-  console.log(user);
-  const checkIfUserExists = await prisma.user.findUnique({
+  const dbuser = await prisma.user.findUnique({
     where: { name: user.name },
   });
-  if (!checkIfUserExists) return false;
-  return await bcrypt.compare(user.pass, checkIfUserExists?.password);
+  if (!dbuser) return null;
+
+  return (await bcrypt.compare(user.pass, dbuser?.password)) ? dbuser : null;
 }

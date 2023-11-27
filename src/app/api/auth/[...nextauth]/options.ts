@@ -22,11 +22,14 @@ export const authOptions = {
         pass: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        if (!credentials) return null;
+        if (!credentials?.name && !credentials?.pass) return null;
         const user = { name: credentials.name, pass: credentials.pass };
-        const thing = await handleSignin({ user });
-        console.log(thing);
-        return null;
+        const dbuser = await handleSignin({ user });
+        if (dbuser) {
+          return { ...dbuser, id: dbuser.id.toString() };
+        } else {
+          return null;
+        }
       },
     }),
   ],
