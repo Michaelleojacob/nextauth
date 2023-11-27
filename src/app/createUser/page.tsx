@@ -1,7 +1,9 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function CreateUserForm() {
+  const router = useRouter();
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -25,8 +27,10 @@ export default function CreateUserForm() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user, time: Date.now() }),
     });
-    const data = await raw.json();
-    console.log(data);
+    const { newUserData } = await raw.json();
+    if (newUserData.status) {
+      router.push("/signin");
+    }
   };
 
   return (
