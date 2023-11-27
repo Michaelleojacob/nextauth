@@ -14,7 +14,7 @@ scrapped everything, started from a blank slate. Minimal version, no prisma. con
 
 version 6 or v0.6.0 is v0.5 but with a sign in form. v0.5 only had a hardcoded sign in
 
-## v0.7
+### v0.7
 
 going to add prisma, and a create user page.
 

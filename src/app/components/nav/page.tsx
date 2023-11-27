@@ -9,8 +9,9 @@ export default function Nav() {
         <div className="flex flex-row gap-3">
           <Link href="/">home</Link>
           <Link href="/signin">signin</Link>
-          <SignOutButton />
+          <Link href="/createUser">create</Link>
           <Link href="/protected">protected</Link>
+          <SignOutButton />
         </div>
         <NavUserStatus />
       </div>
